@@ -1,0 +1,98 @@
+# ~/.config/starship.toml
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Change the default prompt format
+format = """\
+[Γò¡Γò┤](247)$env_var\
+$all[Γò░ΓöÇ](247)$character"""
+
+# Change the default prompt characters
+[character]
+success_symbol = "[∩òô](247)"
+error_symbol = "[∩òô](247)"
+
+[cmd_duration]
+style = "green bold"
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](bold white)'  # removed space between distro and rest for pwsh
+variable = "STARSHIP_DISTRO"
+disabled = false
+
+
+# Shows the username
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[$user]($style) "
+disabled = false  # disable in powershell
+show_always = false
+
+[container]
+disabled = true
+
+[directory]
+truncation_length = 3
+truncation_symbol = "ΓÇª/"
+home_symbol = "∩ƒ¥ ~"
+read_only_style = "197"
+read_only = " ∩Çú "
+format = "at [$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = "∩₧í "
+format = "on [$symbol$branch]($style) "
+# truncation_length = 4
+truncation_symbol = "ΓÇª/"
+style = "bold green"
+
+[git_status]
+format = '[\($all_status$ahead_behind\)]($style) '
+style = "bold green"
+conflicted = "≡ƒÅ│"
+up_to_date = "∩üå "
+untracked = "∩ö⌐ "
+ahead = "Γçí${count}"
+diverged = "ΓçòΓçí${ahead_count}Γçú${behind_count}"
+behind = "Γçú${count}"
+stashed = "∩úû "
+modified = "∩üä "
+staged = '[++\($count\)](green)'
+renamed = "∩¬╢ "
+deleted = "∩Çö "
+
+[terraform]
+format = "via [∩ä╡ terraform $version]($style) ∩Ñé [$workspace]($style) "
+
+[vagrant]
+format = "via [∩ä╡ vagrant $version]($style) "
+
+[docker_context]
+format = "via [∩îê $context](bold blue) "
+
+[helm]
+format = "via [∩êÜ $version](bold purple) "
+
+[python]
+symbol = "∩áƒ "
+python_binary = "python3"
+
+[nodejs]
+format = "via [∩óÿ $version](bold green) "
+disabled = false
+
+[ruby]
+format = "via [εê╛ $version]($style) "
+
+[kubernetes]
+format = 'on [∩êÜ $context\($namespace\)](bold purple) '
+disabled = false
+[kubernetes.context_aliases]
+"clcreative-k8s-staging" = "cl-k8s-staging"
+"clcreative-k8s-production" = "cl-k8s-prod"
+
+[aws]
+disabled = true
